@@ -3,6 +3,7 @@ import mockData from '../data/mockData';
 
 const url = 'http://localhost:3000/user';
 
+// get user infos
 
 type UserInfos = {
     firstName: string;
@@ -24,9 +25,9 @@ type UserData = {
     score?: number; // same reason
     keyData: KeyData;
 };
-  
 
-export const getUserInfo = async (userId: number): Promise<UserData> => {
+
+export const getUserInfo = async (userId: number) => {
     try {
         const response = await axios.get<UserData>(`${url}/${userId}`);
         return response.data;
@@ -42,6 +43,8 @@ export const getUserInfo = async (userId: number): Promise<UserData> => {
     }
 };
 
+// get user activity
+
 type UserActivity = {
     userId: number;
     sessions: {
@@ -51,7 +54,7 @@ type UserActivity = {
     }[];
 };
 
-export const getUserActivity = async (userId: number): Promise<UserActivity> => {
+export const getUserActivity = async (userId: number) => {
     try {
         const response = await axios.get<UserActivity>(`${url}/${userId}/activity`);
         return response.data;
@@ -66,6 +69,8 @@ export const getUserActivity = async (userId: number): Promise<UserActivity> => 
     }
 };
 
+// get user average sessions
+
 type UserAverageSessions = {
     userId: number;
     sessions: {
@@ -74,7 +79,7 @@ type UserAverageSessions = {
     }[];
 };
 
-export const getUserAverageSessions = async (userId: number): Promise<UserAverageSessions> => {
+export const getUserAverageSessions = async (userId: number) => {
     try {
         const response = await axios.get<UserAverageSessions>(`${url}/${userId}/average-sessions`);
         return response.data;
@@ -90,6 +95,7 @@ export const getUserAverageSessions = async (userId: number): Promise<UserAverag
     }
 };
 
+// get user performance
 
 type Kind = {
     [key: number]: string;
@@ -107,7 +113,7 @@ type UserPerformance = {
 };
   
 
-export const getUserPerformance = async (userId: number): Promise<UserPerformance> => {
+export const getUserPerformance = async (userId: number) => {
     try {
         const response = await axios.get<UserPerformance>(`${url}/${userId}/performance`);
         return response.data;

@@ -1,37 +1,16 @@
 import './App.css'
-import { getUserPerformance, getUserActivity, getUserAverageSessions, getUserInfo } from './api/api';
-import { useEffect, useRef } from 'react';
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
 function App() {
-  const hasFetchedData = useRef(false);
-
-  useEffect(() => {
-    if (!hasFetchedData.current) {
-      const performance = async () => {
-        try {
-          const performance = await getUserPerformance(18);
-          const activity = await getUserActivity(18);
-          const averageSessions = await getUserAverageSessions(18);
-          const info = await getUserInfo(18);
-
-          console.log('performance', performance);
-          console.log('activity', activity);
-          console.log('averageSessions', averageSessions);
-          console.log('info', info);
-
-          hasFetchedData.current = true;
-        } catch (error) {
-          console.error(error);
-        }
-      }
-      void performance();
-    }
-  }, []);
 
   return (
-    <>
-      <h1>Hello World</h1>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/user/:userId" element={<Dashboard />} />
+      </Routes>
+    </Router>
   )
 }
 
