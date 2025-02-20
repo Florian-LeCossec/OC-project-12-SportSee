@@ -1,10 +1,13 @@
 import logo from '../assets/logo/sportsee-logo.svg';
 import '../styles/layout/Header.scss';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
         <header className="header">
-            <img src={logo} alt="logo" />
+            <Link to="/">
+                <img src={logo} alt="logo" />
+            </Link>
             <nav className="header__nav">
                 <ul className="header__nav-list">
                     <li className="header__nav-item">Accueil</li>

@@ -12,10 +12,12 @@ function App() {
         <Header />
         <div className="container">
           <SideBar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/user/:userId" element={<Dashboard />} />
-          </Routes>
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/user/:userId" element={<Dashboard />} />
+            </Routes>
+          </div>
         </div>
       </div>
     </Router>
