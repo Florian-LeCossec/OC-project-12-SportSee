@@ -8,25 +8,24 @@ const Home = () => {
     const [userMock, setUserMock] = useState<UserData[]>([]);
 
     useEffect(() => {
-        const fetchUsers = async () => {
-            try {
-                const user1 = await getUserInfo(18);
-                const user2 = await getUserInfo(12);
-
-                const userMock1 = await getUserInfo(18, true);
-                const userMock2 = await getUserInfo(12, true);
-
-                const validUsers = [user1, user2].filter((user): user is UserData => user !== undefined);
-                const validUserMock = [userMock1, userMock2].filter((user): user is UserData => user !== undefined);
-                
-                setUserMock(validUserMock);
-                setUsers(validUsers);
-            } catch (error) {
-                console.error(error);
-            }
+        const fetchData = async () => {
+            const [user1, user2, userMock1, userMock2] = await Promise.all([
+              getUserInfo(18),
+              getUserInfo(12),
+              getUserInfo(18, true),
+              getUserInfo(12, true),
+            ]);
+      
+            const validUsers = [user1, user2].filter((user): user is UserData => user !== undefined);
+            const validUserMock = [userMock1, userMock2].filter((user): user is UserData => user !== undefined);
+      
+            setUserMock(validUserMock);
+            setUsers(validUsers);
+        
         };
-        void fetchUsers();
-    }, []);
+      
+        fetchData();
+      }, []);
     
 
     return (
