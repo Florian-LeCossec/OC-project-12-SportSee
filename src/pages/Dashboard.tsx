@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams, useMatch } from 'react-router-dom';
-import { UserActivity, UserData, UserAverageSessions } from '../types/types';
-import { getUserActivity, getUserInfo, getUserAverageSessions } from '../api/api';
+import { UserActivity, UserData, UserAverageSessions, UserPerformance } from '../types/types';
+import { getUserActivity, getUserInfo, getUserAverageSessions, getUserPerformance } from '../api/api';
 import ActivityGraph from '../components/ActivityGraph';
 import AverageSessionsGraph from '../components/AverageSessionsGraph';
+import PerformanceGraph from '../components/PerformanceGraph';
 
 const Dashboard = () => {
     const { userId } = useParams();
@@ -11,6 +12,7 @@ const Dashboard = () => {
     const [user, setUser] = useState<UserData>();
     const [activity, setActivity] = useState<UserActivity>()
     const [averageSessions, setAverageSessions] = useState<UserAverageSessions>()
+    const [performance, setPerformance] = useState<UserPerformance>()
     const [loading, setLoading] = useState<boolean>(true);
 
     
@@ -21,10 +23,12 @@ const Dashboard = () => {
                 const userResponse = await getUserInfo(+userId, isMock);
                 const activityResponse = await getUserActivity(+userId, isMock)
                 const averageSessionsResponse = await getUserAverageSessions(+userId, isMock)
-
+                const performanceResponse = await getUserPerformance(+userId, isMock)
+                
                 setUser(userResponse);
                 setActivity(activityResponse);
                 setAverageSessions(averageSessionsResponse);
+                setPerformance(performanceResponse);
     
             } catch (error) {
                 console.error(error);
@@ -43,6 +47,7 @@ const Dashboard = () => {
             <h1>{user.userInfos.firstName}</h1>
             {activity ? <ActivityGraph activityData={activity}/> : <div>Erreur de data</div>}
             {averageSessions ? <AverageSessionsGraph averageSessionsData={averageSessions}/> : <div>Erreur de data</div>}
+            {performance ? <PerformanceGraph performanceData={performance}/> : <div>Erreur de data</div>}
         </div>
     );
 };

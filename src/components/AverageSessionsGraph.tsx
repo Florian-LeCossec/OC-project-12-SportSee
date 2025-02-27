@@ -6,7 +6,6 @@ type averageSessionProps = {
 }
 
 const AverageSessionsGraph = ({averageSessionsData}: averageSessionProps) => {
-    console.log(averageSessionsData)
     return (
         <div>
             <LineChart 
