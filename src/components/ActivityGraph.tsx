@@ -6,13 +6,11 @@ type activityProps = {
     activityData: UserActivity,
 }
 
-const UserActivityGraph = ({activityData}: activityProps) => {
+const ActivityGraph = ({activityData}: activityProps) => {
 
     if (!activityData || !activityData.sessions || activityData.sessions.length === 0) {
         return <span>Aucune donnée d&apos;activité disponible</span>;
     }
-
-    console.log(activityData)
 
     return (
         <div className="barChartWrapper">
@@ -43,4 +41,4 @@ const UserActivityGraph = ({activityData}: activityProps) => {
     );
 }
 
-export default UserActivityGraph;
+export default ActivityGraph;
