@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { UserData } from '../types/types';
 import '../styles/components/UserCard.scss';
@@ -7,9 +6,9 @@ type UserCardProps = {
     isMock?: boolean;
 };
 
-const UserCard: React.FC<UserCardProps> = ({ user, isMock }) => {
+const UserCard = ({ user, isMock }: UserCardProps) => {
     return (
-        <Link className="user-card" to={`/user/${user.id}`}>
+        <Link className="user-card" to={isMock ? `/mock/user/${user.id}` :`/user/${user.id}`}>
             <h2 className="user-card__name">{user.userInfos.firstName} {user.userInfos.lastName}</h2>
             {isMock && <span className="user-card__mock">mock</span>}
         </Link>

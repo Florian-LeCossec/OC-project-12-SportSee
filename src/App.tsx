@@ -16,6 +16,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/user/:userId" element={<Dashboard />} />
+              <Route path="/mock/user/:userId" element={<Dashboard />} />
             </Routes>
           </div>
         </div>

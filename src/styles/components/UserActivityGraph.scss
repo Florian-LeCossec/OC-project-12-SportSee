@@ -1,0 +1,17 @@
+@use '../base/variable' as *;
+
+.barChartWrapper {
+    position: relative;
+	height: 320px;
+	width: 850px;
+	border-radius: .5rem;
+	background-color: $background-graphic;
+
+    &__title {
+		top: 2rem;
+		left: 3rem;
+		position: absolute;
+		font-size: 15px;
+		font-weight: 500;
+	}
+}
