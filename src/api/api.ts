@@ -33,8 +33,8 @@ export const getUserActivity = async (userId: number, isMock: boolean = false) =
             }
             return userActivity;
         } else {
-            const response = await axios.get<UserActivity>(`${url}/${userId}/activity`);
-            return response.data;
+            const response = await axios.get<{data: UserActivity}>(`${url}/${userId}/activity`);
+            return response.data.data;
         }
     } catch (error) {
         console.error(`Erreur lors de la récupération des données d'activité de ${url}/${userId}/activity:`, error);
@@ -52,8 +52,8 @@ export const getUserAverageSessions = async (userId: number, isMock: boolean = f
             }
             return userAverageSessions;
         } else {
-            const response = await axios.get<UserAverageSessions>(`${url}/${userId}/average-sessions`);
-            return response.data;
+            const response = await axios.get<{data: UserAverageSessions}>(`${url}/${userId}/average-sessions`);
+            return response.data.data;
         }
     } catch (error) {
         console.error(`Erreur lors de la récupération des données de moyenne de sessions de ${url}/${userId}/average-sessions:`, error);
@@ -71,8 +71,8 @@ export const getUserPerformance = async (userId: number, isMock: boolean = false
             }
             return userPerformance;
         } else {
-            const response = await axios.get<UserPerformance>(`${url}/${userId}/performance`);
-            return response.data;
+            const response = await axios.get<{data: UserPerformance}>(`${url}/${userId}/performance`);
+            return response.data.data;
         }
     } catch (error) {
         console.error(`Erreur lors de la récupération des données de performance de ${url}/${userId}/performance:`, error);

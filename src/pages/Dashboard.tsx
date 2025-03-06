@@ -9,12 +9,13 @@ import PerformanceGraph from '../components/PerformanceGraph';
 const Dashboard = () => {
     const { userId } = useParams();
     const isMock = !!useMatch("/mock/user/:userId");
+    
     const [user, setUser] = useState<UserData>();
     const [activity, setActivity] = useState<UserActivity>()
     const [averageSessions, setAverageSessions] = useState<UserAverageSessions>()
     const [performance, setPerformance] = useState<UserPerformance>()
     const [loading, setLoading] = useState<boolean>(true);
-
+    
     
     useEffect(() => {
         if (!userId) return;

@@ -6,7 +6,6 @@ type PerformanceGraphProps = {
 }
 
 const PerformanceGraph = ({performanceData}: PerformanceGraphProps) => {
-    console.log(performanceData)
     const translation: {[key: string]: string} = {
         "intensity": "Intensité",
         "speed": "Vitesse",
