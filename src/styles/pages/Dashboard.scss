@@ -1,0 +1,50 @@
+@use '../base/variable' as *;
+
+.dashboard {
+    &__title-section {
+        margin: 70px 0 70px 100px;
+        &__title {
+            font-size: $font-size-xlarge;
+            font-weight: $font-weight-medium;
+            color: $color-black;
+            margin-bottom: 40px;
+    
+            &__name {
+                color: $color-red;
+            }
+        }
+
+        &__subtitle {
+            font-size: $font-size-medium;
+            font-weight: $font-weight-regular;
+            color: $color-black;
+        }
+    }
+
+    &__graphs-container {
+        display: flex;
+        margin: 0 70px 0 90px;
+
+        &__graphs {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            &__first-row {
+                display: flex;
+            }
+
+            &__second-row {
+                display: flex;
+                gap: 30px;
+            }
+            
+            
+
+        }
+        
+        
+        
+    }
+    
+}

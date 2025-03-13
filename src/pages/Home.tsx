@@ -2,7 +2,8 @@ import { getUserInfo } from '../api/api';
 import { useEffect, useState } from 'react';
 import { UserData } from '../types/types';
 import UserCard from '../components/UserCard';
-import '../styles/pages/home.scss';
+import '../styles/pages/Home.scss';
+
 const Home = () => {
     const [users, setUsers] = useState<UserData[]>([]);
     const [userMock, setUserMock] = useState<UserData[]>([]);

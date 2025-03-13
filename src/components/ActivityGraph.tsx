@@ -25,7 +25,6 @@ const ActivityGraph = ({activityData}: activityProps) => {
                         left: 40,
                         bottom: 40,
                     }}
-
                 >
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
                     <XAxis dataKey="day" axisLine={true} tickLine={false} tick={{ fontSize: '14px', fontWeight: '500' }} dy={15}/>
