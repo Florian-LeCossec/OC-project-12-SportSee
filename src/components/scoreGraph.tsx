@@ -1,5 +1,7 @@
 import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 import { UserData } from '../types/types';
+import '../styles/components/scoreGraph.scss';
+
 
 type ScoreGraphProps = {
     userData: UserData
@@ -13,7 +15,7 @@ const ScoreGraph = ({ userData }: ScoreGraphProps) => {
         {
             name: 'background',
             value: 100,
-            fill: '#FBFBFB'
+            fill: '#FFFFFF'
         },
         {
             name: 'score',
@@ -23,14 +25,8 @@ const ScoreGraph = ({ userData }: ScoreGraphProps) => {
     ];
 
     return (
-        <div style={{ width: 258, height: 263, backgroundColor: '#FBFBFB', borderRadius: '5px', position: 'relative' }}>
-            <h2 style={{ 
-                position: 'absolute', 
-                top: '24px', 
-                left: '30px',
-                fontSize: '15px',
-                fontWeight: '500'
-            }}>
+        <div className='score-graph'>
+            <h2 className='score-graph__title'>
                 Score
             </h2>
             <ResponsiveContainer width="100%" height="100%">
@@ -41,9 +37,15 @@ const ScoreGraph = ({ userData }: ScoreGraphProps) => {
                     outerRadius="80%"
                     barSize={10}
                     data={data}
-                    startAngle={90}
-                    endAngle={-270}
+                    startAngle={-270}
+                    endAngle={90}
                 >
+                    <circle
+                        cx="50%"
+                        cy="50%"
+                        r="32.5%"
+                        fill="#FFFFFF"
+                    />
                     <RadialBar
                         dataKey="value"
                         cornerRadius={10}
@@ -51,25 +53,11 @@ const ScoreGraph = ({ userData }: ScoreGraphProps) => {
                     />
                 </RadialBarChart>
             </ResponsiveContainer>
-            <div style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                textAlign: 'center'
-            }}>
-                <p style={{ 
-                    fontSize: '26px',
-                    fontWeight: 'bold',
-                    margin: '0'
-                }}>
+            <div className='score-graph__text'>
+                <p className='score-graph__text__title'>
                     {scoreValue}%
                 </p>
-                <p style={{ 
-                    fontSize: '16px',
-                    color: '#74798C',
-                    margin: '0'
-                }}>
+                <p className='score-graph__text__subtitle'>
                     de votre<br/>objectif
                 </p>
             </div>

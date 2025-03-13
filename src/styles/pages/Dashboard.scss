@@ -23,6 +23,7 @@
 
     &__graphs-container {
         display: flex;
+        justify-content: space-between;
         margin: 0 70px 0 90px;
 
         &__graphs {
@@ -36,6 +37,7 @@
 
             &__second-row {
                 display: flex;
+                justify-content: space-between;
                 gap: 30px;
             }
             
