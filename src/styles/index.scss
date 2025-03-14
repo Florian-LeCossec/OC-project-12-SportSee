@@ -22,4 +22,8 @@ html, body {
     padding-left: 117px;
     padding-top: 90px;
     height: 100%;
+
+    @include laptop {
+        padding-left: 100px;
+    }
 }

@@ -23,7 +23,6 @@ const Dashboard = () => {
     const [performance, setPerformance] = useState<UserPerformance>()
     const [loading, setLoading] = useState<boolean>(true);
     
-    
     useEffect(() => {
         if (!userId) return;
         const fetchUser = async () => {
@@ -48,7 +47,7 @@ const Dashboard = () => {
     }, [userId, isMock]);
 
     if (loading) return <div>Chargement...</div>;
-    if (!user) return <div>Utilisateur non trouvé</div>;
+    if (!user) return <div className='error-message'>Une erreur est survenue. L’API est actuellement indisponible.</div>;
     console.log(user)
 
     return (

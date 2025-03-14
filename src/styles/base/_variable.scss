@@ -19,3 +19,20 @@ $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-bold: 700;
 
+// Breakpoints
+$breakpoint-laptop: 1024px;
+$min-height: 780px;
+
+// Media query mixins
+@mixin laptop {
+    @media (max-width: #{$breakpoint-laptop}) {
+        @content;
+    }
+}
+
+@mixin min-height {
+    @media (min-height: #{$min-height}) {
+        @content;
+    }
+}
+
