@@ -13,7 +13,7 @@
     z-index: 1000;
 
     @include laptop {
-        width: 1024px;
+        max-width: 1400px;
     }
 
     &__nav {
