@@ -1,12 +1,16 @@
 @use '../base/variable' as *;
 
 .sidebar {
+    position: fixed;
+    top: 90px;
+    left: 0;
+    z-index: -100;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 117px;
     background-color: $color-black;
-    height: calc(100vh - 91px);
+    min-height: calc(100vh - 90px);
 
     &__logos {
         display: flex;

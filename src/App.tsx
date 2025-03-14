@@ -10,15 +10,13 @@ function App() {
     <Router>
       <div className="app">
         <Header />
-        <div className="container">
-          <SideBar />
-          <div className="content">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/user/:userId" element={<Dashboard />} />
-              <Route path="/mock/user/:userId" element={<Dashboard />} />
-            </Routes>
-          </div>
+        <SideBar />
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/user/:userId" element={<Dashboard />} />
+            <Route path="/mock/user/:userId" element={<Dashboard />} />            
+          </Routes>
         </div>
       </div>
     </Router>
