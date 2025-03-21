@@ -13,7 +13,7 @@ function App() {
         <SideBar />
         <div className="content">
           <Routes>
-            <Route path="/" element={<Home />} />
+			<Route path="/" element={<Home />} />
             <Route path="/user/:userId" element={<Dashboard />} />
             <Route path="/mock/user/:userId" element={<Dashboard />} />            
           </Routes>
